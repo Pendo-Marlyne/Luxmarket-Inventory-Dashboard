@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LuxMarket Dashboard</title>
+</head>
+<body class="bg-slate-50 antialiased font-sans">
+
+    <!-- Master Layout: Sidebar + Main using Grid -->
+    <div class="min-h-screen lg:grid lg:grid-cols-[16rem,1fr]">
+
+        <!-- Sidebar (hidden on mobile, fixed width on large) -->
+        <aside class="hidden lg:flex lg:flex-col lg:bg-slate-900 lg:text-white lg:p-6">
+            <div class="text-2xl font-bold mb-10 tracking-tight">LuxMarket</div>
+
+            <nav class="space-y-2 text-sm">
+                <a href="#" class="block px-3 py-2 bg-slate-800 rounded-lg font-medium">Dashboard</a>
+                <a href="#" class="block px-3 py-2 hover:bg-slate-800 rounded-lg font-medium text-slate-200">Products</a>
+                <a href="#" class="block px-3 py-2 hover:bg-slate-800 rounded-lg font-medium text-slate-300">Orders</a>
+                <a href="#" class="block px-3 py-2 hover:bg-slate-800 rounded-lg font-medium text-slate-300">Analytics</a>
+            </nav>
+
+            <div class="mt-auto pt-8 border-t border-slate-800 text-xs text-slate-400 leading-relaxed">
+                <div class="font-semibold text-slate-200 mb-1">Inventory Overview</div>
+                <p>Track live stock levels, category performance, and pricing health.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex flex-col min-h-screen">
+
+            <!-- Sticky Header with Search (left) + Actions (right) -->
+            <header class="bg-white border-b px-4 sm:px-6 py-3 sm:py-4 sticky top-0 z-10">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <!-- Left: Title + Search -->
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">Product Inventory</h1>
+                        <div class="flex items-center gap-3">
+                            <div class="relative w-full max-w-xs">
+                                <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400">
+                                    <!-- simple search icon -->
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" />
+                                        <line x1="15.5" y1="15.5" x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </span>
+                                <input
+                                    type="text"
+                                    placeholder="Search products..."
+                                    class="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-200 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Action Buttons -->
+                    <div class="flex items-center gap-3 justify-end">
+                        <button class="hidden sm:inline-flex items-center px-3 py-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 hover:bg-slate-100">
+                            Export
+                        </button>
+                        <button class="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs sm:text-sm font-semibold shadow-sm hover:bg-indigo-700">
+                            Add Product
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Area -->
+            <main class="flex-1 px-4 sm:px-6 py-6">
+                <!-- Filters / Meta -->
+                <section class="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-slate-600">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="font-medium text-slate-700">Showing</span>
+                        <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-700 uppercase tracking-wide">
+                            24 Products
+                        </span>
+                        <span class="hidden sm:inline text-slate-400">•</span>
+                        <span class="hidden sm:inline text-slate-500">Updated 3 min ago</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-[11px]">
+                        <button class="text-slate-500 hover:text-slate-900 font-medium uppercase tracking-wide">
+                            Sort: Newest
+                        </button>
+                        <button class="text-slate-500 hover:text-slate-900 font-medium uppercase tracking-wide">
+                            Filter
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Product Grid (Responsive Grid) -->
+                <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Furniture</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-CH-001</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Minimalist Oak Chair</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Handcrafted oak wood with ergonomic support and a premium matte finish that elevates modern interiors.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                In Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$249.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Lighting</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-LG-014</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Glass Orb Pendant Lamp</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Frosted glass orb with warm LED glow, perfect for dining areas and refined workspaces.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                Low Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$189.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Textiles</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-RG-032</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Handwoven Wool Rug</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Soft neutral palette with subtle geometric pattern, designed for high-traffic living rooms and lounges.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                In Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$329.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Decor</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-VS-210</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Ceramic Sculpted Vase</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Asymmetric modern silhouette with a matte eggshell glaze, ideal for single-stem florals.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                Low Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$79.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Storage</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-SH-118</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Walnut Wall Shelf</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Floating shelf system with hidden brackets and solid walnut construction for clean, minimal displays.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                In Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$139.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Outdoor</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-TB-305</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Teak Bistro Set</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Compact table and chair duo in weather-resistant teak, ideal for balconies and terraces.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                In Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$499.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 7 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Office</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-DS-411</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Height-Adjust Desk</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Motorized sit-stand desk with memory presets and cable management channel built in.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                Low Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$699.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 8 -->
+                    <article class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-40 bg-slate-200"></div>
+                        <div class="p-4">
+                            <div class="flex items-baseline justify-between gap-2">
+                                <span class="text-xs font-medium uppercase tracking-widest text-indigo-600">Kitchen</span>
+                                <span class="font-mono text-[11px] text-slate-500">SKU-ST-522</span>
+                            </div>
+                            <h3 class="mt-2 text-lg font-semibold text-slate-900 leading-snug">Marble Serving Tray</h3>
+                            <p class="mt-2 text-sm text-slate-500 line-clamp-2">
+                                Solid marble tray with brushed brass handles, designed for coffee tables and hosting.
+                            </p>
+                            <div class="mt-3 inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium uppercase tracking-wide px-2.5 py-0.5">
+                                In Stock
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="text-xl font-bold text-emerald-700">$119.00</span>
+                                <button class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
