@@ -14,10 +14,16 @@ A responsive Tailwind CSS dashboard for managing LuxMarket product inventory. Th
 
 ## Running the Project
 1,Click on https://pendo-marlyne.github.io/Luxmarket-Inventory-Dashboard/
+
 2. Open `index.html` in your browser
-3. Resize the window to see the responsive sidebar and product grid behavior.
+3. 
+4. Resize the window to see the responsive sidebar and product grid behavior.
 
 ## Layout & Design Notes
 
 - Product cards use CSS Grid for the gallery to handle wrapping and column changes at different screen sizes.
-- Sidebar, header, and card footers use Flexbox for precise alignment of text, badges, and buttons.
+- Sidebar, header and card footers use Flexbox for precise alignment of text, badges and buttons.
+
+- <img width="1240" height="896" alt="image" src="https://github.com/user-attachments/assets/78a3ae66-6c5f-4a4d-9923-c214479e3e7b" />
+<img width="1240" height="896" alt="image" src="https://github.com/user-attachments/assets/78a3ae66-6c5f-4a4d-9923-c214479e3e7b" />
+
