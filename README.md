@@ -13,9 +13,9 @@ A responsive Tailwind CSS dashboard for managing LuxMarket product inventory. Th
 - Tailwind CSS 
 
 ## Running the Project
-
-1. Open `index.html` in your browser
-2. Resize the window to see the responsive sidebar and product grid behavior.
+1,Click on https://pendo-marlyne.github.io/Luxmarket-Inventory-Dashboard/
+2. Open `index.html` in your browser
+3. Resize the window to see the responsive sidebar and product grid behavior.
 
 ## Layout & Design Notes
 
